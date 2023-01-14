@@ -7,6 +7,11 @@ void updateServoPos(int target1, int target2, int target3, char leg){
     plHipL = map((hipLOffset - target1), 0, 180, SERVOMIN, SERVOMAX);
     plKneeL = map((kneeLOffset - target2), 0, 180, SERVOMIN, SERVOMAX);
     plAnkleL = map((2*ankleLOffset - target3), 0, 180, SERVOMIN, SERVOMAX);
+    
+    pwm.setPWM(hipL_Pin,0,plHipL);
+    pwm.setPWM(KneeL_Pin,0,plKneeL);
+    pwm.setPWM(AnkelL_Pin,0,plAnkelL);
+    
     //hipL.write(hipLOffset - target1);
     //kneeL.write(kneeLOffset - target2);
     //ankleL.write(2*ankleLOffset - target3);
